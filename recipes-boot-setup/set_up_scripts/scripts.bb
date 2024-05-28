@@ -24,11 +24,16 @@ do_install() {
 	install -d ${D}${bindir}
 	cp ${S}/fan.sh ${D}${bindir}
 
-	install -d ${D}${bootdir}/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays
-	install -m 0644 ${S}/rk3588s-khadas-edge2.dtb.overlay.env ${D}${bootdir}/dtb/rockchip/
-	install -m 0644 ${S}/mipi-panel.dtbo ${D}${bootdir}/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays
-	install -m 0644 ${S}/spi.dtbo ${D}${bootdir}/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays
+	install -d ${D}/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays/
+	install -m 0644 ${S}/rk3588s-khadas-edge2.dtb.overlay.env ${D}/boot/dtb/rockchip/
+	install -m 0644 ${S}/mipi-panel.dtbo ${D}/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays/
+	install -m 0644 ${S}/spi.dtbo ${D}/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays/
 }
 
-FILE:${PN} += "${nonarch_base_libdir}/modules/bcmdhd_pcie*.ko"
-FILE:${PN} += "${bootdir}/dtb/*"
+FILES:${PN} += "${sysconfdir}/rcS.d/S39wifi_set_up.sh"
+FILES:${PN} += "${sysconfdir}/rcS.d/S39bt_set_up.sh"
+FILES:${PN} += "${sysconfdir}/rcS.d/S39audio_set_up.sh"
+FILES:${PN} += "${bindir}/fan.sh"
+FILES:${PN} += "/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlay.env"
+FILES:${PN} += "/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays/mipi-panel.dtbo"
+FILES:${PN} += "/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlays/spi.dtbo"
