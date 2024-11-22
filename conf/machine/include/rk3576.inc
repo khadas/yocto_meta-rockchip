@@ -2,12 +2,12 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 require conf/machine/include/rockchip-arm64-common.inc
+require conf/machine/include/mali.inc
 
 RK_SOC_FAMILY := "rk3576"
 
 PREFERRED_VERSION_linux-rockchip := "6.1%"
 LINUXLIBCVERSION := "6.1-custom%"
-OLDEST_KERNEL := "6.1"
 
 MALI_GPU := "bifrost-g52"
 MALI_VERSION := "g13p0"
