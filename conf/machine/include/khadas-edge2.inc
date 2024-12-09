@@ -2,12 +2,12 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 require conf/machine/include/rockchip-arm64-common.inc
+require conf/machine/include/mali.inc
 
 RK_SOC_FAMILY := "rk3588"
 
 PREFERRED_VERSION_linux-rockchip := "5.10%"
 LINUXLIBCVERSION := "5.10-custom%"
-OLDEST_KERNEL := "5.10"
 
 KBUILD_DEFCONFIG := "khadas_edge2_defconfig"
 
